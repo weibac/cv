@@ -183,22 +183,8 @@ def json_to_latex_cv(json_data):
     # Development Philosophy (as extra information)
     if dev_philosophy:
         latex.append("\\section{Development Philosophy}")
-        # First escape all LaTeX special characters
         escaped_philosophy = escape_latex(dev_philosophy)
-        
-        # Break down the philosophy into paragraphs
-        philosophy_paragraphs = escaped_philosophy.split(". ")
-        philosophy_formatted = ""
-        
-        for i, paragraph in enumerate(philosophy_paragraphs):
-            if i < len(philosophy_paragraphs) - 1:
-                philosophy_formatted += paragraph + ". "
-                if (i + 1) % 3 == 0:  # Create a new paragraph every 3 sentences
-                    philosophy_formatted += "\\\\"  # Add line break
-            else:
-                philosophy_formatted += paragraph
-        
-        latex.append("\\cvitem{}{" + philosophy_formatted + "}")
+        latex.append("\\cvitem{}{" + escaped_philosophy + "}")
     
     # Close document
     latex.append("\\end{document}")
