@@ -29,10 +29,13 @@
   "slack": {
     "email": "milan.weibel@uc.cl"
   },
-  "titulo": "Industrial Computación",
-  "major": "Computación y Sistemas de Información",
-  "major-track": "Computación",
-  "minor": "Industrial",
+  "education": {
+    "titulo": "Industrial Computación",
+    "major": "Computación y Sistemas de Información",
+    "major-track": "Computación",
+    "minor": "Industrial",
+    "certificado academico": "Ciencia Política"
+  },
   "awards": ["Puntuacion Distinguida en el Examen de Competencias Fundamentales de Ingeniería"],
   "english": "Advanced. Native-equivalent proficiency",
   "ayudantias": ["IIC1103 Introducción a la Programación"],
