@@ -3,6 +3,43 @@ import os
 import argparse
 from datetime import datetime
 
+def escape_latex(text):
+    """
+    Escape LaTeX special characters in text.
+    
+    Args:
+        text (str): Text to escape
+        
+    Returns:
+        str: Text with LaTeX special characters escaped
+    """
+    # Define LaTeX special characters and their escaped versions
+    special_chars = {
+        '&': '\\&',
+        '%': '\\%',
+        '$': '\\$',
+        '#': '\\#',
+        '_': '\\_',
+        '{': '\\{',
+        '}': '\\}',
+        '~': '\\textasciitilde{}',
+        '^': '\\textasciicircum{}',
+        '\\': '\\textbackslash{}',  # This needs to be last to avoid double escaping
+    }
+    
+    # Replace special characters with their escaped versions
+    for char, replacement in special_chars.items():
+        if char == '\\':  # Handle backslash specially to avoid double escaping
+            # Replace only standalone backslashes, not already escaped ones
+            text = text.replace('\\', '\\textbackslash{}')
+        else:
+            text = text.replace(char, replacement)
+    
+    # Handle quotes properly
+    text = text.replace('"', "''")
+    
+    return text
+
 def json_to_latex_cv(json_data):
     """
     Convert a JSON resume data structure to LaTeX code for a CV.
@@ -43,124 +80,128 @@ def json_to_latex_cv(json_data):
     # Handle publications and additional information
     publications = json_data.get('publications', '')
     dev_philosophy = json_data.get('dev-philosophy', '')
+    # For clarity, no replacement needed here
     admin_skills = json_data.get('admin-skills', [])
     
     # Create LaTeX document
     latex = []
     
     # Document class and packages
-    latex.append(r"\documentclass[11pt,a4paper,sans]{moderncv}")
-    latex.append(r"\moderncvstyle{classic}")
-    latex.append(r"\moderncvcolor{blue}")
-    latex.append(r"\usepackage[scale=0.75]{geometry}")
-    latex.append(r"\usepackage[utf8]{inputenc}")
+    latex.append("\\documentclass[11pt,a4paper,sans]{moderncv}")
+    latex.append("\\moderncvstyle{classic}")
+    latex.append("\\moderncvcolor{blue}")
+    latex.append("\\usepackage[scale=0.75]{geometry}")
+    latex.append("\\usepackage[utf8]{inputenc}")
     
     # Personal information
-    latex.append(r"\name{" + name + r"}{}")
+    latex.append("\\name{" + name + "}{}")
     if address:
-        latex.append(r"\address{" + address + r"}{}")
+        latex.append("\\address{" + address + "}{}")
     if phone:
-        latex.append(r"\phone{" + phone + r"}")
+        latex.append("\\phone{" + phone + "}")
     if primary_email:
-        latex.append(r"\email{" + primary_email + r"}")
+        latex.append("\\email{" + primary_email + "}")
     if website:
-        latex.append(r"\homepage{" + website + r"}")
+        latex.append("\\homepage{" + website + "}")
     
     # Social accounts
     if 'github' in json_data and 'username' in json_data['github']:
-        latex.append(r"\social[github]{" + json_data['github']['username'] + r"}")
+        latex.append("\\social[github]{" + json_data['github']['username'] + "}")
     
-    latex.append(r"\begin{document}")
-    latex.append(r"\makecvtitle")
+    latex.append("\\begin{document}")
+    latex.append("\\makecvtitle")
     
     # Education section
-    latex.append(r"\section{Education}")
+    latex.append("\\section{Education}")
     
-    education_text = titulo
+    education_text = escape_latex(titulo)
     if major:
-        education_text += f", {major}"
+        education_text += f", {escape_latex(major)}"
     if minor:
-        education_text += f", Minor in {minor}"
+        education_text += f", Minor in {escape_latex(minor)}"
     
-    latex.append(r"\cvitem{Degree}{" + education_text + r"}")
+    latex.append("\\cvitem{Degree}{" + education_text + "}")
     
     if awards:
-        latex.append(r"\subsection{Awards}")
+        latex.append("\\subsection{Awards}")
         for award in awards:
-            latex.append(r"\cvitem{}{" + award + r"}")
+            latex.append("\\cvitem{}{" + escape_latex(award) + "}")
     
     # Languages
     if english:
-        latex.append(r"\section{Languages}")
-        latex.append(r"\cvitem{English}{" + english + r"}")
-        latex.append(r"\cvitem{Spanish}{Native}")
+        latex.append("\\section{Languages}")
+        latex.append("\\cvitem{English}{" + escape_latex(english) + "}")
+        latex.append("\\cvitem{Spanish}{Native}")
     
     # Technical Skills
-    latex.append(r"\section{Technical Skills}")
+    latex.append("\\section{Technical Skills}")
     
     if dev_technologies:
-        technologies_str = ", ".join(dev_technologies)
-        latex.append(r"\cvitem{Technologies}{" + technologies_str + r"}")
+        technologies_str = ", ".join(escape_latex(tech) for tech in dev_technologies)
+        latex.append("\\cvitem{Technologies}{" + technologies_str + "}")
     
     if favorite_paradigm:
-        latex.append(r"\cvitem{Preferred Paradigm}{" + favorite_paradigm + r"}")
+        latex.append("\\cvitem{Preferred Paradigm}{" + escape_latex(favorite_paradigm) + "}")
     
     if dev_techniques:
-        techniques_str = ", ".join(dev_techniques)
-        latex.append(r"\cvitem{Development Techniques}{" + techniques_str + r"}")
+        techniques_str = ", ".join(escape_latex(tech) for tech in dev_techniques)
+        latex.append("\\cvitem{Development Techniques}{" + techniques_str + "}")
     
     if dev_soft_skills:
-        soft_skills_str = ", ".join(dev_soft_skills)
-        latex.append(r"\cvitem{Domain Knowledge}{" + soft_skills_str + r"}")
+        soft_skills_str = ", ".join(escape_latex(skill) for skill in dev_soft_skills)
+        latex.append("\\cvitem{Domain Knowledge}{" + soft_skills_str + "}")
     
     # Courses section
     if courses:
-        latex.append(r"\section{Relevant Coursework}")
+        latex.append("\\section{Relevant Coursework}")
         
         # Sort courses by semester
         sorted_courses = sorted(courses, key=lambda x: x.get('semester', ''))
         
         for course in sorted_courses:
-            course_name = course.get('name', '')
-            semester = course.get('semester', '')
-            latex.append(r"\cvitem{" + semester + r"}{" + course_name + r"}")
+            course_name = escape_latex(course.get('name', ''))
+            semester = escape_latex(course.get('semester', ''))
+            latex.append("\\cvitem{" + semester + "}{" + course_name + "}")
     
     # Teaching assistant experience
     if ayudantias:
-        latex.append(r"\section{Teaching Experience}")
+        latex.append("\\section{Teaching Experience}")
         for course in ayudantias:
-            latex.append(r"\cvitem{Teaching Assistant}{" + course + r"}")
+            latex.append("\\cvitem{Teaching Assistant}{" + escape_latex(course) + "}")
     
     # Administrative Skills
     if admin_skills:
-        latex.append(r"\section{Administrative Skills}")
+        latex.append("\\section{Administrative Skills}")
         for skill in admin_skills:
-            latex.append(r"\cvitem{}{" + skill + r"}")
+            latex.append("\\cvitem{}{" + escape_latex(skill) + "}")
     
     # Publications
     if publications:
-        latex.append(r"\section{Publications \& Research}")
-        latex.append(r"\cvitem{}{" + publications + r"}")
+        latex.append("\\section{Publications \\& Research}")
+        latex.append("\\cvitem{}{" + escape_latex(publications) + "}")
     
     # Development Philosophy (as extra information)
     if dev_philosophy:
-        latex.append(r"\section{Development Philosophy}")
+        latex.append("\\section{Development Philosophy}")
+        # First escape all LaTeX special characters
+        escaped_philosophy = escape_latex(dev_philosophy)
+        
         # Break down the philosophy into paragraphs
-        philosophy_paragraphs = dev_philosophy.split(". ")
+        philosophy_paragraphs = escaped_philosophy.split(". ")
         philosophy_formatted = ""
         
         for i, paragraph in enumerate(philosophy_paragraphs):
             if i < len(philosophy_paragraphs) - 1:
                 philosophy_formatted += paragraph + ". "
                 if (i + 1) % 3 == 0:  # Create a new paragraph every 3 sentences
-                    philosophy_formatted += "\\\\"
+                    philosophy_formatted += "\\\\"  # Add line break
             else:
                 philosophy_formatted += paragraph
         
-        latex.append(r"\cvitem{}{" + philosophy_formatted + r"}")
+        latex.append("\\cvitem{}{" + philosophy_formatted + "}")
     
     # Close document
-    latex.append(r"\end{document}")
+    latex.append("\\end{document}")
     
     return "\n".join(latex)
 
