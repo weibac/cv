@@ -1,0 +1,65 @@
+{
+  "name": {
+    "first": "Milan",
+    "first2": "Joseph",
+    "family": "Weibel",
+    "family2": "Bacovic",
+    "family2b": "Bakovic"
+  },
+  "picture": "../assets/profile-pic.jpg",
+  "address": "Noruega 6520, Las Condes, Santiago, Chile",
+  "phone": "+56977713483",
+  "email": {
+    "uc": "milan.weibel@uc.cl",
+    "google": "milanweibelbacovic@gmail.com",
+    "proton": "weibac@proton.me",
+  },
+  "github": {
+    "username": "weibac",
+    "email": "milan.weibel@uc.cl"
+  },
+  "gitlab": {
+    "username": "weibac",
+    "email": "milan.weibel@uc.cl"
+  },
+  "zmartboard": {
+    "email": "milan.weibel@uc.cl"
+  },
+  "slack": {
+    "email": "milan.weibel@uc.cl"
+  },
+  "titulo": "Industrial Computación",
+  "major": "Computación y Sistemas de Información Track Computación",
+  "minor": "Industrial",
+  "awards": ["Puntuacion Distinguida en el Examen de Competencias Fundamentales de Ingeniería"],
+  "english": "Advanced. Native-equivalent proficiency",
+  "ayudantias": ["IIC1103 Introducción a la Programación"],
+  "courses": [
+    {"name": "IIC2233 Programación Avanzada",
+     "semester": "2022-2"},
+    {"name": "IIC2613 Inteligencia Artificial",
+     "semester": "2023-1"},
+    {"name": "IIC2133 Estructuras de datos y algoritmos",
+     "semester": "2023-1"},
+    {"name": "IIC2333 Sistemas Operativos y Redes",
+     "semester": "2023-2"},
+    {"name": "IIC2343 Arquitectura de Computadores ",
+     "semester": "2023-2"},
+    {"name": "IIC2413 Bases de Datos",
+     "semester": "2023-2"},
+    {"name": "IIC2143 Ingeniería de software",
+     "semester": "2024-1"},
+    {"name": "IIC2513 Tecnologías y Aplicaciones Web",
+     "semester": "2024-2"},
+    {"name": "IIC2552 Taller de Programacion Avanzada",
+     "semester": "2025-1"},
+    {"name": "IIC3697 Aprendizaje Profundo",
+     "semester": "2025-1"}
+  ],
+  "dev-technologies": ["python", "git", "bash", "pytorch", "sql", "ruby on rails", "react"],
+  "dev-techniques": ["test-driven development", "git-centric project management"],
+  "favorite-paradigm": "functional programming (as implemented in lisp or haskell or roc)",
+  "graphic-design-experience": "["../assets/earthskull.png", "../assets/aisuc-batalla-chatbots.png", "../assets/aisuc-nvidia-1.png", "../assets/aisuc-nvidia-2.png", "../assets/aisuc-charla-tom-vergara"]",
+  "admin-skills": ["Deep understanding of the interpersonal or self-management challenges faced by neurodiverse people", "Clear, direct yet empathetic, written communication abilities"],
+  "publications": "No formal publications yet, but currently collaborating with Sohaib Inram from the University of Lancaster on evaluating the bayesian inference capabilities of Large Language Models (LLMs). Previously, I wrote up some informal notes on the multilingual capabilities of LLMs: https://www.lesswrong.com/posts/TZPbm3BRkWWTm9ecC/chatgpt-understands-but-largely-does-not-generate-spanglish"
+}
