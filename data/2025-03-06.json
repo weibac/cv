@@ -30,7 +30,8 @@
     "email": "milan.weibel@uc.cl"
   },
   "titulo": "Industrial Computación",
-  "major": "Computación y Sistemas de Información, Track Computación",
+  "major": "Computación y Sistemas de Información",
+  "major-track": "Computación",
   "minor": "Industrial",
   "awards": ["Puntuacion Distinguida en el Examen de Competencias Fundamentales de Ingeniería"],
   "english": "Advanced. Native-equivalent proficiency",
@@ -60,8 +61,8 @@
   "dev-technologies": ["python", "pytorch", "einops", "git", "bash", "c", "sql", "ruby on rails", "react"],
   "favorite-paradigm": "Functional programming (as implemented in lisp or haskell or roc)",
   "dev-techniques": ["test-driven development", "agile development", "vibe coding"],
-  "dev-soft-skills": ["machine learning theory", "software requirements red-teaming", "developer psychology"],
-  "dev-philosophy": "A synthesis of Agile and Test-Driven Development adapted for the era of LLMs. Focus on thorough requirements analysis and documentation first, operationalized through comprehensive tests. Advocate for functional programming paradigms to enhance testability and allow for the formal verification of critical components. While LLMs have made code generation cheap, designing robust specifications remains critical. Human developers should focus on requirement capture and specification, while leveraging LLMs for implementation that satisfies well-defined test suites. The goal is shifting emphasis from code writing to requirements engineering.",
+  "dev-soft-skills": ["debugging", "software requirements red teaming", "developer psychology"],
+  "dev-philosophy": "A synthesis of Agile and Test-Driven Development adapted for the era of LLMs. Focus on thorough requirements analysis and documentation first, operationalized through comprehensive tests. Advocate for functional programming paradigms to enhance testability and allow for the formal verification of critical components. While LLMs have made code generation cheap, designing robust specifications remains critical. Human developers should focus on requirement capture and specification, while leveraging LLMs for implementation that satisfies well-defined test suites. Developers should shift emphasis from code writing to requirements engineering.",
   "graphic-design-experience": ["https://weibac.github.io/assets/earthskull.png", "https://weibac.github.io/assets/aisuc-batalla-chatbots.png", "https://weibac.github.io/assets/aisuc-nvidia-1.png", "https://weibac.github.io/assets/aisuc-nvidia-2.png", "https://weibac.github.io/assets/aisuc-charla-tom-vergara"],
   "admin-skills": ["Deep understanding of the interpersonal and self-management challenges faced by neurodiverse people. Consequently, I am good at managing them.", "Strong written communication abilities. I aim to always be candid and straightforward. Doing so helps build trust."],
   "publications": "No formal publications yet, but currently collaborating with Sohaib Imran from the University of Lancaster on evaluating the bayesian inference capabilities of Large Language Models (LLMs). Previously, wrote up some informal notes on the multilingual capabilities of LLMs: https://www.lesswrong.com/posts/TZPbm3BRkWWTm9ecC/chatgpt-understands-but-largely-does-not-generate-spanglish"
