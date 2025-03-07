@@ -188,7 +188,7 @@ def json_to_latex_cv(json_data):
     if graphic_design:
         latex.append("\\section{Graphic Design}")
         # Join the first few examples with proper LaTeX formatting for hyperlinks
-        examples = graphic_design[:3]  # Limit to first 3 examples to avoid overcrowding
+        examples = graphic_design[:4]  # Limit to first 4 examples to avoid overcrowding
         examples_str = ""
         for i, example in enumerate(examples):
             if i > 0:
@@ -199,7 +199,7 @@ def json_to_latex_cv(json_data):
         
         if examples:
             latex.append("\\cvitem{Portfolio Samples}{" + examples_str + "}")
-            if len(graphic_design) > 3:
+            if len(graphic_design) > 4:
                 latex.append("\\cvitem{}{Additional examples available on request}")
     
     # Administrative Skills
