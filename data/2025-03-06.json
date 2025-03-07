@@ -61,7 +61,7 @@
     {"name": "IIC3697 Aprendizaje Profundo",
      "semester": "2025-1"}
   ],
-  "dev-technologies": ["python", "pytorch", "einops", "git", "bash", "c", "sql", "ruby on rails", "react"],
+  "dev-technologies": ["python", "pytorch", "einops", "git", "linux", "nix", "docker", "bash", "c", "sql", "ruby on rails", "react"],
   "favorite-paradigm": "Functional programming (as implemented in lisp or haskell or roc)",
   "dev-techniques": ["test-driven development", "agile development", "vibe coding"],
   "dev-soft-skills": ["debugging", "software requirements red teaming", "developer psychology"],
