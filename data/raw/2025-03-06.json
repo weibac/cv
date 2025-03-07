@@ -8,7 +8,7 @@
   },
   "picture": "../assets/profile-pic.jpg",
   "address": "Noruega 6520, Las Condes, Santiago, Chile",
-  "website": "weibac.github.io",
+  "website": "https://weibac.github.io",
   "phone": "+56977713483",
   "email": {
     "uc": "milan.weibel@uc.cl",
@@ -62,7 +62,7 @@
   "dev-techniques": ["test-driven development", "agile development", "vibe coding"],
   "dev-soft-skills": ["machine learning theory", "software requirements red-teaming", "developer psychology", "LLM pseudo-psychology"],
   "dev-philosophy": "A synthesis of Agile, vibe coding, and UML-based development. With the advent of LLMs, code has suddenly gotten extremely cheap. Some developers have started \"vibe coding\": Writing a couple vague sentences into an LLM's chat window, and then copy-pasting and even committing LLM-generated code that mostly works but that they have not properly tested, much less understood. Writing bug-free code that actually satisfies the user's needs remains as rare as ever. I believe that developer efforts must be refocused to adapt to this new reality. First, extreme care should be taken to understand the client's requirements. Once understood, such requirements should be clarified and documented in extremely thorough design desiderata documents that are both human and machine-readable. Design desiderata should be operationalized as an extensive suite of unit and integration tests. A functional paradigm should be favored, since the lack of side-effects makes test design easier. Code writing should be taken as something as trivial as code compiling, because it now is. A commercially-available scaffolded LLM such as Claude 3.7, given extensive documentation on software functionality and architecture requirements and a suite of tests to run, is capable of writing software components that pass all tests in mere minutes. This is because scaffolded LLMs are capable of autonomously running tests, and debugging the errors identified by them. Code-level iteration, that focuses on passing automatic tests, should be done by LLMs. Human developers should focus on specification-level iteration. That is, on making sure that both the tests and the design documentation correctly capture the client's requirements.",
-  "graphic-design-experience": "["../assets/earthskull.png", "../assets/aisuc-batalla-chatbots.png", "../assets/aisuc-nvidia-1.png", "../assets/aisuc-nvidia-2.png", "../assets/aisuc-charla-tom-vergara"]",
+  "graphic-design-experience": "["https://weibac.github.io/assets/earthskull.png", "https://weibac.github.io/assets/aisuc-batalla-chatbots.png", "https://weibac.github.io/assets/aisuc-nvidia-1.png", "https://weibac.github.io/assets/aisuc-nvidia-2.png", "https://weibac.github.io/assets/aisuc-charla-tom-vergara"]",
   "admin-skills": ["Deep understanding of the interpersonal and self-management challenges faced by neurodiverse people. Consequently, I am good at managing them.", "Strong written communication abilities. I aim to always be candid and straightforward. Doing so helps build trust."],
   "publications": "No formal publications yet, but currently collaborating with Sohaib Inram from the University of Lancaster on evaluating the bayesian inference capabilities of Large Language Models (LLMs). Previously, I wrote up some informal notes on the multilingual capabilities of LLMs: https://www.lesswrong.com/posts/TZPbm3BRkWWTm9ecC/chatgpt-understands-but-largely-does-not-generate-spanglish"
 }
