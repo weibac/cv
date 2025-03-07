@@ -42,12 +42,12 @@
     "spanish": "Native.",
     "french": "Intermediate."
   },
-  "teaching": {
+  "teaching": [
     {"course": "IIC1103 Introducción a la Programación",
      "role": "Teaching Assistant"},
     {"course": "AI Safety Fundamentals @ UC Chile",
     "role": "Program lead, session facilitator"}
-  },
+  ],
   "courses": [
     {"name": "IIC2233 Programación Avanzada",
      "semester": "2022-2"},
