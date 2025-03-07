@@ -82,5 +82,6 @@
   "preferred role": "My main requirement is to be placed in an evironment that will allow me to work according to the development philosophy I have outlined in this document. This means working for a client who won't meddle in technical decisions, and with teammates who agree with the importance of writing correct specifications. A scenario I can see happening and which I want to avoid is me being placed in a tester role, and being resented by my teammates for correctly pointing out that their probably-LLM-written, definitively-written-from-a-confused-spec code is bad. This is why I ask either for an administrator role leading a ragtag team of autists, or for a combined analyst + architect role in a team where the administrator is unlikely to override me.",
   "metadata": {
   "uri": "https://github.com/weibac/cv",
-  "explanation": "This very cv is an example of my development philosophy. The main document I worked and iterated on was a json file. I then had an LLM write functions to compile it into latex code. I used third-party web software (overleaf) to compile the latex into this PDF. Data and code can be found here: {uri}"}
+  "explanation": "This very cv is an example of my development philosophy. The main document I worked and iterated on was a json file. I then had an LLM write functions to compile it into latex code. I used third-party web software (overleaf) to compile the latex into this PDF"
+  }
 }
