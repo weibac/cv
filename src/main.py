@@ -144,11 +144,33 @@ def json_to_latex_cv(json_data):
     latex.append("\\documentclass[11pt,a4paper,sans]{moderncv}")
     latex.append("\\moderncvstyle{classic}")
     latex.append("\\moderncvcolor{blue}")
-    latex.append("\\usepackage[scale=0.75]{geometry}")
+    latex.append("\\usepackage[scale=0.8]{geometry}")  # Increased margins
     latex.append("\\usepackage[utf8]{inputenc}")
     latex.append("\\usepackage{needspace}")
     latex.append("\\usepackage{placeins}")
     latex.append("\\usepackage{graphicx}")
+    latex.append("\\usepackage{xcolor}")
+    
+    # Define a more sophisticated blue
+    latex.append("\\definecolor{sophisticatedblue}{RGB}{41, 103, 166}")
+    latex.append("\\colorlet{myblue}{sophisticatedblue}")
+    
+    # Custom styling for more refined look
+    latex.append("\\renewcommand{\\sectionfont}{\\Large\\bfseries\\color{myblue}}")
+    latex.append("\\renewcommand{\\subsectionfont}{\\large\\mdseries\\color{myblue}}")
+    
+    # Add vertical space before sections using etoolbox package
+    latex.append("\\usepackage{etoolbox}")
+    latex.append("\\newcommand{\\sectionspace}{\\vspace{1.2em}}")
+    latex.append("\\pretocmd{\\section}{\\sectionspace}{}{}")
+    
+    # Improve table alignment for cvitems
+    latex.append("\\renewcommand{\\cvitem}[3][.25em]{%")
+    latex.append("  \\begin{tabular}{@{}p{0.18\\textwidth}@{\\hspace{.5em}}p{0.76\\textwidth}@{}}%")
+    latex.append("    \\raggedleft\\bfseries#2 & #3 \\\\%")
+    latex.append("  \\end{tabular}%")
+    latex.append("  \\par\\addvspace{#1}%")
+    latex.append("}")
     
     # Add commands to prevent page breaks in sections
     latex.append("\\newcommand{\\preventbreaksection}[1]{")
@@ -158,7 +180,7 @@ def json_to_latex_cv(json_data):
     latex.append("}")
     
     # Personal information
-    latex.append("\\name{" + name + "}{}")
+    latex.append("\\name{\\LARGE " + name + "}{}")  # Larger name
     if address:
         latex.append("\\address{" + address + "}{}")
     if phone:
@@ -168,18 +190,20 @@ def json_to_latex_cv(json_data):
     if website:
         latex.append("\\homepage{" + website + "}")
     
-    # Profile picture
+    # Profile picture - smaller size, better frame
     if picture_url:
-        # Photo will be added through moderncv's photo command
-        latex.append("\\photo[64pt][0.4pt]{profile-pic}")  # Size and frame thickness
+        latex.append("\\photo[52pt][1.2pt]{profile-pic}")  # Reduced size, stronger frame
     
     # Social accounts
     if 'github' in json_data and 'username' in json_data['github']:
         latex.append("\\social[github]{" + json_data['github']['username'] + "}")
     
     latex.append("\\begin{document}")
-    latex.append("\\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}")
+    latex.append("\\hypersetup{colorlinks=true, linkcolor=myblue, urlcolor=myblue}")  # Updated link colors
     latex.append("\\makecvtitle")
+    
+    # Add some spacing after the title
+    latex.append("\\vspace{0.5em}")
     
     # Education section
     latex.append("\\preventbreaksection{Education}")
@@ -204,15 +228,15 @@ def json_to_latex_cv(json_data):
         if certificado:
             latex.append("\\cvitem{Certificado Académico}{" + escape_latex(certificado) + "}")
     
+    # Additional Education
+    if additional:
+        latex.append("\\subsection{Additional Education}")
+        latex.append("\\cvitem{}{" + escape_latex(additional) + "}")
     
     if awards:
         latex.append("\\subsection{Awards}")
         for award in awards:
             latex.append("\\cvitem{}{" + escape_latex(award) + "}")
-
-    if additional:
-       latex.append("\\subsection{Additional Education}")
-       latex.append("\\cvitem{}{" + escape_latex(additional) + "}")
     
     # Languages
     if languages:
@@ -282,7 +306,7 @@ def json_to_latex_cv(json_data):
         if examples:
             latex.append("\\cvitem{Portfolio Samples}{" + examples_str + "}")
             if len(graphic_design) > 4:
-                latex.append("\\cvitem{}{Additional examples available on request.}")
+                latex.append("\\cvitem{}{Additional examples available on request}")
     
     # Administrative Skills
     if admin_skills:
