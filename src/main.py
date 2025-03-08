@@ -122,10 +122,15 @@ def json_to_latex_cv(json_data):
     
     # Handle technical skills
     dev_technologies = json_data.get('dev-technologies', [])
+    # Check if dev-technologies is a list of objects (new format) or strings (old format)
+    if dev_technologies and isinstance(dev_technologies[0], dict):
+        tech_has_links = True
+    else:
+        tech_has_links = False
+        
     dev_techniques = json_data.get('dev-techniques', [])
     dev_soft_skills = json_data.get('dev-soft-skills', [])
     favorite_paradigm = json_data.get('favorite-paradigm', '')
-    favorite_editor = json_data.get('favorite-code-editor', '')
     
     # Handle publications and additional information
     publications = json_data.get('publications', '')
@@ -252,14 +257,25 @@ def json_to_latex_cv(json_data):
     latex.append("\\preventbreaksection{Technical Skills}")
     
     if dev_technologies:
-        technologies_str = ", ".join(escape_latex(tech) for tech in dev_technologies)
+        if tech_has_links:
+            # New format: List of objects with name and url
+            tech_items = []
+            for tech in dev_technologies:
+                tech_name = escape_latex(tech.get('name', ''))
+                tech_url = tech.get('url', '')
+                if tech_url:
+                    tech_items.append(f"\\href{{{tech_url}}}{{{tech_name}}}")
+                else:
+                    tech_items.append(tech_name)
+            technologies_str = ", ".join(tech_items)
+        else:
+            # Old format: List of strings
+            technologies_str = ", ".join(escape_latex(tech) for tech in dev_technologies)
+        
         latex.append("\\cvitem{Technologies}{" + technologies_str + "}")
     
     if favorite_paradigm:
         latex.append("\\cvitem{Preferred Paradigm}{" + escape_latex(favorite_paradigm) + "}")
-    
-    if favorite_editor:
-        latex.append("\\cvitem{Preferred Editor}{" + escape_latex(favorite_editor) + "}")
     
     if dev_techniques:
         techniques_str = ", ".join(escape_latex(tech) for tech in dev_techniques)

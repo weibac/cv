@@ -72,7 +72,22 @@
     {"name": "IIC3697 Aprendizaje Profundo",
      "semester": "2025-1"}
   ],
-  "dev-technologies": ["python", "pytorch", "einops", "git", "linux", "nix", "docker", "bash", "neovim", "c", "sql", "ruby on rails", "react"],
+  "dev-technologies": [
+    {"name": "python", "url": "https://www.python.org/"},
+    {"name": "pytorch", "url": "https://pytorch.org/"},
+    {"name": "einops", "url": "https://einops.rocks"},
+    {"name": "git", "url": "https://git-scm.com/"},
+    {"name": "linux", "url": "https://en.wikipedia.org/wiki/Linux"},
+    {"name": "nix", "url": "https://nixos.org/"},
+    {"name": "docker", "url": "https://www.docker.com/"},
+    {"name": "bash", "url": "https://www.gnu.org/software/bash/"},
+    {"name": "neovim", "url": "https://neovim.io/"},
+    {"name": "c", "url": "https://en.wikipedia.org/wiki/C_(programming_language)"},
+    {"name": "sql", "url": "https://en.wikipedia.org/wiki/SQL"},
+    {"name": "ruby on rails", "url": "https://rubyonrails.org/"},
+    {"name": "react", "url": "https://reactjs.org/"},
+    {"name": "claude", "url": "https://claude.ai/"}
+  ],
   "favorite-paradigm": "Functional programming (as implemented in lisp or haskell or roc)",
   "dev-techniques": ["test-driven development", "agile development", "vibe coding"],
   "dev-soft-skills": ["debugging", "software requirements red teaming", "developer psychology"],
