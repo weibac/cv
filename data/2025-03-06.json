@@ -30,13 +30,15 @@
     "email": "milan.weibel@uc.cl"
   },
   "education": {
-    "titulo": "Industrial Computación",
-    "major": "Computación y Sistemas de Información",
-    "major-track": "Computación",
-    "minor": "Industrial",
-    "certificado academico": "Ciencia Política"
+    "uc": {
+      "titulo": "Industrial Computación",
+      "major": "Computación y Sistemas de Información",
+      "major-track": "Computación",
+      "minor": "Industrial",
+      "certificado academico": "Ciencia Política"},
+    "awards": ["Distinguished-grade score in the Fundamentals of Engineering Exam"],
+    "additional": "ML4Good Bootcamp Brasil 2024"
   },
-  "awards": ["Puntuacion Distinguida en el Examen de Competencias Fundamentales de Ingeniería"],
   "languages": {
     "english": "Advanced. Native-equivalent proficiency.",
     "spanish": "Native.",

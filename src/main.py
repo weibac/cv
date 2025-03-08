@@ -92,19 +92,21 @@ def json_to_latex_cv(json_data):
     website = json_data.get('website', '')
     phone = json_data.get('phone', '')
     email_data = json_data.get('email', {})
-    primary_email = email_data.get('google', email_data.get('uc', email_data.get('proton', '')))
+    primary_email = email_data.get('uc', email_data.get('google', email_data.get('proton', '')))
     
     # Handle profile picture
     picture_url = json_data.get('picture', '')
     
     # Handle education and skills
     education = json_data.get('education', {})
-    titulo = education.get('titulo', '')
-    major = education.get('major', '')
-    major_track = education.get('major-track', '')
-    minor = education.get('minor', '')
-    certificado = education.get('certificado academico', '')
-    awards = json_data.get('awards', [])
+    uc_education = education.get('uc', {})
+    titulo = uc_education.get('titulo', '')
+    major = uc_education.get('major', '')
+    major_track = uc_education.get('major-track', '')
+    minor = uc_education.get('minor', '')
+    certificado = uc_education.get('certificado academico', '')
+    awards = education.get('awards', [])
+    additional = education.get('additional', '')
     
     # Handle languages
     languages = json_data.get('languages', {})
@@ -182,26 +184,35 @@ def json_to_latex_cv(json_data):
     # Education section
     latex.append("\\preventbreaksection{Education}")
     
-    # List each education field separately
-    if titulo:
-        latex.append("\\cvitem{Título}{" + escape_latex(titulo) + "}")
+    # UC Education
+    if titulo or major or minor or certificado:
+        latex.append("\\subsection{Pontificia Universidad Católica de Chile}")
+        
+        # List each education field separately
+        if titulo:
+            latex.append("\\cvitem{Título}{" + escape_latex(titulo) + "}")
+        
+        if major:
+            major_text = escape_latex(major)
+            if major_track:
+                major_text += f" Track {escape_latex(major_track)}"
+            latex.append("\\cvitem{Major}{" + major_text + "}")
+        
+        if minor:
+            latex.append("\\cvitem{Minor}{" + escape_latex(minor) + "}")
+        
+        if certificado:
+            latex.append("\\cvitem{Certificado Académico}{" + escape_latex(certificado) + "}")
     
-    if major:
-        major_text = escape_latex(major)
-        if major_track:
-            major_text += f" Track {escape_latex(major_track)}"
-        latex.append("\\cvitem{Major}{" + major_text + "}")
-    
-    if minor:
-        latex.append("\\cvitem{Minor}{" + escape_latex(minor) + "}")
-    
-    if certificado:
-        latex.append("\\cvitem{Certificado Académico}{" + escape_latex(certificado) + "}")
     
     if awards:
         latex.append("\\subsection{Awards}")
         for award in awards:
             latex.append("\\cvitem{}{" + escape_latex(award) + "}")
+
+    if additional:
+       latex.append("\\subsection{Additional Education}")
+       latex.append("\\cvitem{}{" + escape_latex(additional) + "}")
     
     # Languages
     if languages:
@@ -271,7 +282,7 @@ def json_to_latex_cv(json_data):
         if examples:
             latex.append("\\cvitem{Portfolio Samples}{" + examples_str + "}")
             if len(graphic_design) > 4:
-                latex.append("\\cvitem{}{Additional examples available on request}")
+                latex.append("\\cvitem{}{Additional examples available on request.}")
     
     # Administrative Skills
     if admin_skills:
