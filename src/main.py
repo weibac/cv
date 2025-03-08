@@ -1,8 +1,9 @@
 import json
 import os
 import argparse
-from datetime import datetime
 import re
+from datetime import datetime
+from pathlib import Path
 
 def escape_latex(text):
     """
@@ -41,6 +42,38 @@ def escape_latex(text):
     
     return text
 
+def download_image(url, output_path):
+    """
+    Download an image from a URL and save it to the specified path.
+    
+    Args:
+        url (str): URL of the image to download
+        output_path (str): Local path where the image will be saved
+        
+    Returns:
+        bool: True if download was successful, False otherwise
+    """
+    try:
+        import requests
+        from pathlib import Path
+        
+        # Create directory if it doesn't exist
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+        
+        # Download the image
+        response = requests.get(url, stream=True)
+        if response.status_code == 200:
+            with open(output_path, 'wb') as f:
+                for chunk in response.iter_content(1024):
+                    f.write(chunk)
+            return True
+        else:
+            print(f"Failed to download image: HTTP status code {response.status_code}")
+            return False
+    except Exception as e:
+        print(f"Error downloading image: {str(e)}")
+        return False
+
 def json_to_latex_cv(json_data):
     """
     Convert a JSON resume data structure to LaTeX code for a CV.
@@ -60,6 +93,9 @@ def json_to_latex_cv(json_data):
     phone = json_data.get('phone', '')
     email_data = json_data.get('email', {})
     primary_email = email_data.get('google', email_data.get('uc', email_data.get('proton', '')))
+    
+    # Handle profile picture
+    picture_url = json_data.get('picture', '')
     
     # Handle education and skills
     education = json_data.get('education', {})
@@ -110,6 +146,7 @@ def json_to_latex_cv(json_data):
     latex.append("\\usepackage[utf8]{inputenc}")
     latex.append("\\usepackage{needspace}")
     latex.append("\\usepackage{placeins}")
+    latex.append("\\usepackage{graphicx}")
     
     # Add commands to prevent page breaks in sections
     latex.append("\\newcommand{\\preventbreaksection}[1]{")
@@ -128,6 +165,11 @@ def json_to_latex_cv(json_data):
         latex.append("\\email{" + primary_email + "}")
     if website:
         latex.append("\\homepage{" + website + "}")
+    
+    # Profile picture
+    if picture_url:
+        # Photo will be added through moderncv's photo command
+        latex.append("\\photo[64pt][0.4pt]{profile-pic}")  # Size and frame thickness
     
     # Social accounts
     if 'github' in json_data and 'username' in json_data['github']:
@@ -301,13 +343,40 @@ def main():
     parser = argparse.ArgumentParser(description='Convert JSON resume to LaTeX CV')
     parser.add_argument('json_file', help='Path to JSON resume file')
     parser.add_argument('--output', '-o', help='Output LaTeX file path (default: cv.tex)')
+    parser.add_argument('--no-image', action='store_true', help='Skip downloading profile image')
     
     args = parser.parse_args()
     output_file = args.output if args.output else 'cv.tex'
+    output_dir = os.path.dirname(output_file) or '.'
     
     try:
         with open(args.json_file, 'r', encoding='utf-8') as f:
             json_data = json.load(f)
+        
+        # Handle profile picture if URL is provided
+        picture_url = json_data.get('picture', '')
+        if picture_url and not args.no_image:
+            # Determine image file extension
+            image_ext = os.path.splitext(picture_url.split('/')[-1])[1]
+            if not image_ext:
+                image_ext = '.jpg'  # Default to jpg if no extension
+                
+            # Set image output path
+            image_path = os.path.join(output_dir, 'profile-pic' + image_ext)
+            
+            # Download image
+            print(f"Downloading profile picture from {picture_url}...")
+            success = download_image(picture_url, image_path)
+            
+            if success:
+                print(f"Profile picture downloaded to {image_path}")
+                # Strip extension for LaTeX since moderncv handles extensions
+                if image_ext:
+                    base_image_path = os.path.splitext(os.path.basename(image_path))[0]
+                    json_data['picture'] = base_image_path
+            else:
+                print("Failed to download profile picture, continuing without image")
+                json_data['picture'] = ''
         
         latex_cv = json_to_latex_cv(json_data)
         
@@ -315,6 +384,7 @@ def main():
             f.write(latex_cv)
         
         print(f"CV successfully generated: {output_file}")
+        print("Compile it with: pdflatex " + output_file)
         
     except FileNotFoundError:
         print(f"Error: The file {args.json_file} was not found.")
