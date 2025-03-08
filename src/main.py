@@ -69,22 +69,32 @@ def json_to_latex_cv(json_data):
     minor = education.get('minor', '')
     certificado = education.get('certificado academico', '')
     awards = json_data.get('awards', [])
-    english = json_data.get('english', '')
     
-    # Handle courses and teaching
+    # Handle languages
+    languages = json_data.get('languages', {})
+    english = languages.get('english', '')
+    spanish = languages.get('spanish', '')
+    french = languages.get('french', '')
+    
+    # Handle teaching experience
+    teaching = json_data.get('teaching', [])
+    
+    # Handle courses
     courses = json_data.get('courses', [])
-    ayudantias = json_data.get('ayudantias', [])
     
     # Handle technical skills
     dev_technologies = json_data.get('dev-technologies', [])
     dev_techniques = json_data.get('dev-techniques', [])
     dev_soft_skills = json_data.get('dev-soft-skills', [])
     favorite_paradigm = json_data.get('favorite-paradigm', '')
+    favorite_editor = json_data.get('favorite-code-editor', '')
     
     # Handle publications and additional information
     publications = json_data.get('publications', '')
     dev_philosophy = json_data.get('dev-philosophy', '')
     admin_skills = json_data.get('admin-skills', [])
+    preferred_role = json_data.get('preferred role', '')
+    metadata = json_data.get('metadata', {})
     
     # Handle graphic design experience
     graphic_design = json_data.get('graphic-design-experience', [])
@@ -98,6 +108,15 @@ def json_to_latex_cv(json_data):
     latex.append("\\moderncvcolor{blue}")
     latex.append("\\usepackage[scale=0.75]{geometry}")
     latex.append("\\usepackage[utf8]{inputenc}")
+    latex.append("\\usepackage{needspace}")
+    latex.append("\\usepackage{placeins}")
+    
+    # Add commands to prevent page breaks in sections
+    latex.append("\\newcommand{\\preventbreaksection}[1]{")
+    latex.append("  \\needspace{3\\baselineskip}")
+    latex.append("  \\section{#1}")
+    latex.append("  \\FloatBarrier")
+    latex.append("}")
     
     # Personal information
     latex.append("\\name{" + name + "}{}")
@@ -119,7 +138,7 @@ def json_to_latex_cv(json_data):
     latex.append("\\makecvtitle")
     
     # Education section
-    latex.append("\\section{Education}")
+    latex.append("\\preventbreaksection{Education}")
     
     # List each education field separately
     if titulo:
@@ -143,13 +162,17 @@ def json_to_latex_cv(json_data):
             latex.append("\\cvitem{}{" + escape_latex(award) + "}")
     
     # Languages
-    if english:
-        latex.append("\\section{Languages}")
-        latex.append("\\cvitem{English}{" + escape_latex(english) + "}")
-        latex.append("\\cvitem{Spanish}{Native}")
+    if languages:
+        latex.append("\\preventbreaksection{Languages}")
+        if english:
+            latex.append("\\cvitem{English}{" + escape_latex(english) + "}")
+        if spanish:
+            latex.append("\\cvitem{Spanish}{" + escape_latex(spanish) + "}")
+        if french:
+            latex.append("\\cvitem{French}{" + escape_latex(french) + "}")
     
     # Technical Skills
-    latex.append("\\section{Technical Skills}")
+    latex.append("\\preventbreaksection{Technical Skills}")
     
     if dev_technologies:
         technologies_str = ", ".join(escape_latex(tech) for tech in dev_technologies)
@@ -157,6 +180,9 @@ def json_to_latex_cv(json_data):
     
     if favorite_paradigm:
         latex.append("\\cvitem{Preferred Paradigm}{" + escape_latex(favorite_paradigm) + "}")
+    
+    if favorite_editor:
+        latex.append("\\cvitem{Preferred Editor}{" + escape_latex(favorite_editor) + "}")
     
     if dev_techniques:
         techniques_str = ", ".join(escape_latex(tech) for tech in dev_techniques)
@@ -168,7 +194,7 @@ def json_to_latex_cv(json_data):
     
     # Courses section
     if courses:
-        latex.append("\\section{Relevant Coursework}")
+        latex.append("\\preventbreaksection{Relevant Coursework}")
         
         # Sort courses by semester
         sorted_courses = sorted(courses, key=lambda x: x.get('semester', ''))
@@ -179,16 +205,19 @@ def json_to_latex_cv(json_data):
             latex.append("\\cvitem{" + semester + "}{" + course_name + "}")
     
     # Teaching assistant experience
-    if ayudantias:
-        latex.append("\\section{Teaching Experience}")
-        for course in ayudantias:
-            latex.append("\\cvitem{Teaching Assistant}{" + escape_latex(course) + "}")
+    if teaching:
+        latex.append("\\preventbreaksection{Teaching Experience}")
+        for item in teaching:
+            course = item.get('course', '')
+            role = item.get('role', '')
+            if course and role:
+                latex.append("\\cvitem{" + escape_latex(role) + "}{" + escape_latex(course) + "}")
     
     # Graphic Design section
     if graphic_design:
-        latex.append("\\section{Graphic Design}")
+        latex.append("\\preventbreaksection{Graphic Design}")
         # Join the first few examples with proper LaTeX formatting for hyperlinks
-        examples = graphic_design[:4]  # Limit to first 4 examples to avoid overcrowding
+        examples = graphic_design[:4]  # Increased to 4 examples as requested
         examples_str = ""
         for i, example in enumerate(examples):
             if i > 0:
@@ -204,13 +233,13 @@ def json_to_latex_cv(json_data):
     
     # Administrative Skills
     if admin_skills:
-        latex.append("\\section{Administrative Skills}")
+        latex.append("\\preventbreaksection{Administrative Skills}")
         for skill in admin_skills:
             latex.append("\\cvitem{}{" + escape_latex(skill) + "}")
     
     # Publications
     if publications:
-        latex.append("\\section{Publications \\& Research}")
+        latex.append("\\preventbreaksection{Publications \\& Research}")
         
         # Use a different approach - split text into URL and non-URL parts
         pub_text = publications
@@ -241,10 +270,27 @@ def json_to_latex_cv(json_data):
     
     # Development Philosophy (as extra information)
     if dev_philosophy:
-        latex.append("\\section{Development Philosophy}")
+        latex.append("\\preventbreaksection{Development Philosophy}")
         # Use the directly provided philosophy text which has already been refined
         escaped_philosophy = escape_latex(dev_philosophy)
         latex.append("\\cvitem{}{" + escaped_philosophy + "}")
+    
+    # Preferred Role
+    if preferred_role:
+        latex.append("\\preventbreaksection{Preferred Role}")
+        latex.append("\\cvitem{}{" + escape_latex(preferred_role) + "}")
+    
+    # Metadata and source code link
+    if metadata:
+        uri = metadata.get('uri', '')
+        explanation = metadata.get('explanation', '')
+        if uri and explanation:
+            # Process the explanation text to replace {uri} with the actual URI
+            explanation = explanation.replace('{uri}', uri)
+            
+            latex.append("\\preventbreaksection{Meta}")
+            latex.append("\\cvitem{}{" + escape_latex(explanation) + "}")
+            latex.append("\\cvitem{Source}{\\href{" + uri + "}{" + uri + "}}")
     
     # Close document
     latex.append("\\end{document}")
