@@ -106,7 +106,15 @@ def json_to_latex_cv(json_data):
     minor = uc_education.get('minor', '')
     certificado = uc_education.get('certificado academico', '')
     awards = education.get('awards', [])
-    additional = education.get('additional', '')
+    
+    # Handle additional education with potential links
+    additional_edu = education.get('additional', '')
+    additional_edu_url = education.get('additional_url', '')
+    
+    # Handle links in additional education - check if it's a dictionary format
+    if isinstance(education.get('additional', ''), dict):
+        additional_edu = education['additional'].get('name', '')
+        additional_edu_url = education['additional'].get('url', '')
     
     # Handle languages
     languages = json_data.get('languages', {})
@@ -130,7 +138,12 @@ def json_to_latex_cv(json_data):
         
     dev_techniques = json_data.get('dev-techniques', [])
     dev_soft_skills = json_data.get('dev-soft-skills', [])
+    
+    # Handle favorite paradigm with potential links
     favorite_paradigm = json_data.get('favorite-paradigm', '')
+    favorite_paradigm_links = json_data.get('favorite-paradigm-links', {})
+    
+    favorite_editor = json_data.get('favorite-code-editor', '')
     
     # Handle publications and additional information
     publications = json_data.get('publications', '')
@@ -234,9 +247,13 @@ def json_to_latex_cv(json_data):
             latex.append("\\cvitem{Certificado Académico}{" + escape_latex(certificado) + "}")
     
     # Additional Education
-    if additional:
+    if additional_edu:
         latex.append("\\subsection{Additional Education}")
-        latex.append("\\cvitem{}{" + escape_latex(additional) + "}")
+        if additional_edu_url:
+            # Format as hyperlink if URL is available
+            latex.append("\\cvitem{}{\\href{" + additional_edu_url + "}{" + escape_latex(additional_edu) + "}}")
+        else:
+            latex.append("\\cvitem{}{" + escape_latex(additional_edu) + "}")
     
     if awards:
         latex.append("\\subsection{Awards}")
@@ -275,7 +292,26 @@ def json_to_latex_cv(json_data):
         latex.append("\\cvitem{Technologies}{" + technologies_str + "}")
     
     if favorite_paradigm:
-        latex.append("\\cvitem{Preferred Paradigm}{" + escape_latex(favorite_paradigm) + "}")
+        # First escape the paradigm text
+        escaped_paradigm = escape_latex(favorite_paradigm)
+        
+        # Then add hyperlinks if links are provided (without escaping the href commands)
+        if favorite_paradigm_links:
+            for lang, url in favorite_paradigm_links.items():
+                # Create pattern to match the escaped language name
+                import re
+                escaped_lang = escape_latex(lang)
+                pattern = re.compile(re.escape(escaped_lang), re.IGNORECASE)
+                
+                # Replace with hyperlink (don't escape the href command)
+                # Use raw string for the replacement to avoid escape sequence issues
+                replacement = r"\\href{" + url + "}{" + escaped_lang + "}"
+                escaped_paradigm = pattern.sub(replacement, escaped_paradigm)
+        
+        latex.append("\\cvitem{Preferred Paradigm}{" + escaped_paradigm + "}")
+    
+    if favorite_editor:
+        latex.append("\\cvitem{Preferred Editor}{" + escape_latex(favorite_editor) + "}")
     
     if dev_techniques:
         techniques_str = ", ".join(escape_latex(tech) for tech in dev_techniques)

@@ -37,7 +37,10 @@
       "minor": "Industrial",
       "certificado academico": "Ciencia Política"},
     "awards": ["Distinguished-grade score in the Fundamentals of Engineering Exam"],
-    "additional": "ML4Good Bootcamp Brasil 2024"
+    "additional": {
+      "name": "ML4Good Bootcamp Brasil 2024",
+      "url": "https://www.ml4good.org/pastcamps"
+    }
   },
   "languages": {
     "english": "Advanced. Native-equivalent proficiency.",
@@ -89,6 +92,11 @@
     {"name": "claude", "url": "https://claude.ai/"}
   ],
   "favorite-paradigm": "Functional programming (as implemented in lisp or haskell or roc)",
+  "favorite-paradigm-links": {
+    "lisp": "https://lisp-lang.org/",
+    "haskell": "https://www.haskell.org/",
+    "roc": "https://www.roc-lang.org/"
+  },
   "dev-techniques": ["test-driven development", "agile development", "vibe coding"],
   "dev-soft-skills": ["debugging", "software requirements red teaming", "developer psychology"],
   "dev-philosophy": "A synthesis of Agile and Test-Driven Development adapted for the era of LLMs. Focus on thorough requirements analysis and documentation first, operationalized through comprehensive tests. Advocate for functional programming paradigms to enhance testability and allow for the formal verification of critical components. While LLMs have made code generation cheap, designing robust specifications remains critical. Human developers should focus on requirement capture and specification, while leveraging LLMs for implementation that satisfies well-defined test suites. Developers should shift emphasis from code writing to requirements engineering.",
