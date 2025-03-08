@@ -1,40 +1,58 @@
 \documentclass[11pt,a4paper,sans]{moderncv}
 \moderncvstyle{classic}
 \moderncvcolor{blue}
-\usepackage[scale=0.75]{geometry}
+\usepackage[scale=0.8]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{needspace}
 \usepackage{placeins}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\definecolor{sophisticatedblue}{RGB}{41, 103, 166}
+\colorlet{myblue}{sophisticatedblue}
+\renewcommand{\sectionfont}{\Large\bfseries\color{myblue}}
+\renewcommand{\subsectionfont}{\large\mdseries\color{myblue}}
+\usepackage{etoolbox}
+\newcommand{\sectionspace}{\vspace{1.2em}}
+\pretocmd{\section}{\sectionspace}{}{}
+\renewcommand{\cvitem}[3][.25em]{%
+  \begin{tabular}{@{}p{0.18\textwidth}@{\hspace{.5em}}p{0.76\textwidth}@{}}%
+    \raggedleft\bfseries#2 & #3 \\%
+  \end{tabular}%
+  \par\addvspace{#1}%
+}
 \newcommand{\preventbreaksection}[1]{
   \needspace{3\baselineskip}
   \section{#1}
   \FloatBarrier
 }
-\name{Milan Joseph Weibel Bacovic}{}
+\name{\LARGE Milan Joseph Weibel Bacovic}{}
 \address{Noruega 6520, Las Condes, Santiago, Chile}{}
 \phone{+56977713483}
-\email{milanweibelbacovic@gmail.com}
+\email{milan.weibel@uc.cl}
 \homepage{https://weibac.github.io}
-\photo[64pt][0.4pt]{profile-pic}
+\photo[52pt][1.2pt]{profile-pic}
 \social[github]{weibac}
 \begin{document}
-\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+\hypersetup{colorlinks=true, linkcolor=myblue, urlcolor=myblue}
 \makecvtitle
+\vspace{0.5em}
 \preventbreaksection{Education}
+\subsection{Pontificia Universidad Católica de Chile}
 \cvitem{Título}{Industrial Computación}
 \cvitem{Major}{Computación y Sistemas de Información Track Computación}
 \cvitem{Minor}{Industrial}
 \cvitem{Certificado Académico}{Ciencia Política}
+\subsection{Additional Education}
+\cvitem{}{\href{https://www.ml4good.org/pastcamps}{ML4Good Bootcamp Brasil 2024}}
 \subsection{Awards}
-\cvitem{}{Puntuacion Distinguida en el Examen de Competencias Fundamentales de Ingeniería}
+\cvitem{}{Distinguished-grade score in the Fundamentals of Engineering Exam}
 \preventbreaksection{Languages}
 \cvitem{English}{Advanced. Native-equivalent proficiency.}
 \cvitem{Spanish}{Native.}
 \cvitem{French}{Intermediate.}
 \preventbreaksection{Technical Skills}
-\cvitem{Technologies}{python, pytorch, einops, git, linux, nix, docker, bash, neovim, c, sql, ruby on rails, react}
-\cvitem{Preferred Paradigm}{Functional programming (as implemented in lisp or haskell or roc)}
+\cvitem{Technologies}{\href{https://www.python.org/}{python}, \href{https://pytorch.org/}{pytorch}, \href{https://einops.rocks}{einops}, \href{https://git-scm.com/}{git}, \href{https://en.wikipedia.org/wiki/Linux}{linux}, \href{https://nixos.org/}{nix}, \href{https://www.docker.com/}{docker}, \href{https://www.gnu.org/software/bash/}{bash}, \href{https://neovim.io/}{neovim}, \href{https://en.wikipedia.org/wiki/C_(programming_language)}{c}, \href{https://en.wikipedia.org/wiki/SQL}{sql}, \href{https://rubyonrails.org/}{ruby on rails}, \href{https://reactjs.org/}{react}, \href{https://claude.ai/}{claude}}
+\cvitem{Preferred Paradigm}{Functional programming (as implemented in \href{https://lisp-lang.org/}{lisp} or \href{https://www.haskell.org/}{haskell} or \href{https://www.roc-lang.org/}{roc})}
 \cvitem{Development Techniques}{test-driven development, agile development, vibe coding}
 \cvitem{Domain Knowledge}{debugging, software requirements red teaming, developer psychology}
 \preventbreaksection{Relevant Coursework}
