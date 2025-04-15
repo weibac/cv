@@ -1,0 +1,104 @@
+{
+    "name": {
+      "first": "Milan",
+      "first2": "Joseph",
+      "family": "Weibel",
+      "family2": "Bacovic",
+      "family2b": "Bakovic"
+    },
+    "picture": "https://weibac.github.io/assets/profile-pic.jpg",
+    "address": "Noruega 6520, Las Condes, Santiago, Chile",
+    "website": "weibac.github.io",
+    "phone": "+56977713483",
+    "email": {
+      "uc": "milan.weibel@uc.cl",
+      "google": "milanweibelbacovic@gmail.com",
+      "proton": "weibac@proton.me"
+    },
+    "github": {
+      "username": "weibac",
+      "email": "milan.weibel@uc.cl"
+    },
+    "education": {
+      "uc": {
+        "titulo": "Industrial Computación",
+        "major": "Computación y Sistemas de Información",
+        "major-track": "Computación",
+        "minor": "Industrial",
+        "certificado academico": "Ciencia Política"},
+      "additional": {
+        "name": "ML4Good Bootcamp Brasil 2024",
+        "url": "https://www.ml4good.org/pastcamps"
+      }
+    },
+    "languages": {
+      "english": "Advanced. Native-equivalent proficiency.",
+      "spanish": "Native.",
+      "french": "Intermediate."
+    },
+    "teaching": [
+      {"course": "IIC1103 Introducción a la Programación",
+       "role": "Teaching Assistant"},
+      {"course": "AI Safety Fundamentals @ UC Chile",
+      "role": "Program lead, session facilitator",
+      "url": "https://aisuc.dev"}
+    ],
+    "courses": [
+      {"name": "IIC2233 Programación Avanzada",
+       "semester": "2022-2"},
+      {"name": "IIC2613 Inteligencia Artificial",
+       "semester": "2023-1"},
+      {"name": "IIC2133 Estructuras de datos y algoritmos",
+       "semester": "2023-1"},
+      {"name": "IIC2333 Sistemas Operativos y Redes",
+       "semester": "2023-2"},
+      {"name": "IIC2343 Arquitectura de Computadores ",
+       "semester": "2023-2"},
+      {"name": "IIC2413 Bases de Datos",
+       "semester": "2023-2"},
+      {"name": "IIC2143 Ingeniería de software",
+       "semester": "2024-1"},
+      {"name": "IIC2513 Tecnologías y Aplicaciones Web",
+       "semester": "2024-2"},
+      {"name": "IIC2552 Taller de Programacion Avanzada",
+       "semester": "2025-1"},
+      {"name": "IIC2154 Proyecto de Especialidad",
+       "semester": "2025-1"},
+      {"name": "IIC3697 Aprendizaje Profundo",
+       "semester": "2025-1"}
+    ],
+    "dev-technologies": [
+      {"name": "python", "url": "https://www.python.org/"},
+      {"name": "pytorch", "url": "https://pytorch.org/"},
+      {"name": "einops", "url": "https://einops.rocks"},
+      {"name": "selenium", "url": "https://www.selenium.dev/"},
+      {"name": "git", "url": "https://git-scm.com/"},
+      {"name": "linux", "url": "https://en.wikipedia.org/wiki/Linux"},
+      {"name": "nix", "url": "https://nixos.org/"},
+      {"name": "docker", "url": "https://www.docker.com/"},
+      {"name": "bash", "url": "https://www.gnu.org/software/bash/"},
+      {"name": "neovim", "url": "https://neovim.io/"},
+      {"name": "c", "url": "https://en.wikipedia.org/wiki/C_(programming_language)"},
+      {"name": "sql", "url": "https://en.wikipedia.org/wiki/SQL"},
+      {"name": "ruby on rails", "url": "https://rubyonrails.org/"},
+      {"name": "react", "url": "https://reactjs.org/"},
+      {"name": "claude", "url": "https://claude.ai/"}
+    ],
+    "favorite-paradigm": "Functional programming (as implemented in lisp or haskell or roc)",
+    "favorite-paradigm-links": {
+      "lisp": "https://lisp-lang.org/",
+      "haskell": "https://www.haskell.org/",
+      "roc": "https://www.roc-lang.org/"
+    },
+    "dev-techniques": ["test-driven development", "agile development"],
+    "dev-soft-skills": ["debugging", "software requirements red teaming", "developer psychology"],
+    "dev-philosophy": "A synthesis of Agile and Test-Driven Development adapted for the era of LLMs. Focus on thorough requirements analysis and documentation first, operationalized through comprehensive tests. Advocate for functional programming paradigms to enhance testability and allow for the formal verification of critical components. While LLMs have made code generation cheap, designing robust specifications remains critical. Human developers should focus on requirement capture and specification, while leveraging LLMs for implementation that satisfies well-defined test suites. Developers should shift emphasis from code writing to requirements engineering.",
+    "graphic-design-experience": ["https://weibac.github.io/assets/earthskull.png", "https://weibac.github.io/assets/aisuc-batalla-chatbots.png", "https://weibac.github.io/assets/aisuc-nvidia-1.png", "https://weibac.github.io/assets/aisuc-nvidia-2.png", "https://weibac.github.io/assets/aisuc-charla-tom-vergara"],
+    "admin-skills": ["Deep understanding of the interpersonal and self-management challenges faced by developers, especially neurodiverse ones. Consequently, I am good at managing them.", "Strong written communication abilities. I aim to always be candid and straightforward. Doing so helps build trust."],
+    "publications": "No formal publications yet, but currently collaborating with Sohaib Imran from the University of Lancaster on evaluating the bayesian inference capabilities of Large Language Models (LLMs). Previously, wrote up some informal notes on the multilingual capabilities of LLMs: https://www.lesswrong.com/posts/TZPbm3BRkWWTm9ecC/chatgpt-understands-but-largely-does-not-generate-spanglish",
+    "metadata": {
+    "uri": "https://github.com/weibac/cv",
+    "explanation": "This very cv is an example of my development philosophy. The main document I worked and iterated on was a json file. I then had an LLM write functions to compile it into latex code. I used third-party web software (overleaf) to compile the latex into PDF. I have been iterating on the content by adding to it incrementally and looking at how it compiles into PDF. The LLM has been iterating on the code, based on my feedback. I have had to help it debug a couple times, but it can debug by itself most of the time when provided with the appropiate error messages."
+    }
+  }
+  

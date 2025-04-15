@@ -142,7 +142,6 @@ def json_to_latex_cv(json_data):
     # Handle favorite paradigm with potential links
     favorite_paradigm = json_data.get('favorite-paradigm', '')
     favorite_paradigm_links = json_data.get('favorite-paradigm-links', {})
-    
     favorite_editor = json_data.get('favorite-code-editor', '')
     
     # Handle publications and additional information
@@ -162,7 +161,7 @@ def json_to_latex_cv(json_data):
     latex.append("\\documentclass[11pt,a4paper,sans]{moderncv}")
     latex.append("\\moderncvstyle{classic}")
     latex.append("\\moderncvcolor{blue}")
-    latex.append("\\usepackage[scale=0.8]{geometry}")  # Increased margins
+    latex.append("\\usepackage[scale=0.85]{geometry}")  # Increased margins
     latex.append("\\usepackage[utf8]{inputenc}")
     latex.append("\\usepackage{needspace}")
     latex.append("\\usepackage{placeins}")
@@ -179,7 +178,7 @@ def json_to_latex_cv(json_data):
     
     # Add vertical space before sections using etoolbox package
     latex.append("\\usepackage{etoolbox}")
-    latex.append("\\newcommand{\\sectionspace}{\\vspace{1.2em}}")
+    latex.append("\\newcommand{\\sectionspace}{\\vspace{0.6em}}")
     latex.append("\\pretocmd{\\section}{\\sectionspace}{}{}")
     
     # Improve table alignment for cvitems
@@ -260,16 +259,7 @@ def json_to_latex_cv(json_data):
         for award in awards:
             latex.append("\\cvitem{}{" + escape_latex(award) + "}")
     
-    # Languages
-    if languages:
-        latex.append("\\preventbreaksection{Languages}")
-        if english:
-            latex.append("\\cvitem{English}{" + escape_latex(english) + "}")
-        if spanish:
-            latex.append("\\cvitem{Spanish}{" + escape_latex(spanish) + "}")
-        if french:
-            latex.append("\\cvitem{French}{" + escape_latex(french) + "}")
-    
+
     # Technical Skills
     latex.append("\\preventbreaksection{Technical Skills}")
     
@@ -320,27 +310,52 @@ def json_to_latex_cv(json_data):
     if dev_soft_skills:
         soft_skills_str = ", ".join(escape_latex(skill) for skill in dev_soft_skills)
         latex.append("\\cvitem{Domain Knowledge}{" + soft_skills_str + "}")
-    
-    # Courses section
+
+    # Courses section - using a more compact layout with multiple courses per row
     if courses:
         latex.append("\\preventbreaksection{Relevant Coursework}")
         
         # Sort courses by semester
         sorted_courses = sorted(courses, key=lambda x: x.get('semester', ''))
         
+        # Group courses by semester for more compact display
+        semesters = {}
         for course in sorted_courses:
-            course_name = escape_latex(course.get('name', ''))
-            semester = escape_latex(course.get('semester', ''))
-            latex.append("\\cvitem{" + semester + "}{" + course_name + "}")
-    
+            semester = course.get('semester', '')
+            course_name = course.get('name', '')
+            if semester not in semesters:
+                semesters[semester] = []
+            semesters[semester].append(course_name)
+        
+        # Create more compact display of courses
+        for semester, course_list in sorted(semesters.items()):
+            courses_text = ", ".join([escape_latex(course) for course in course_list])
+            latex.append("\\cvitem{" + escape_latex(semester) + "}{" + courses_text + "}")
+
     # Teaching assistant experience
     if teaching:
         latex.append("\\preventbreaksection{Teaching Experience}")
         for item in teaching:
             course = item.get('course', '')
             role = item.get('role', '')
+            url = item.get('url', '')
             if course and role:
-                latex.append("\\cvitem{" + escape_latex(role) + "}{" + escape_latex(course) + "}")
+                # If URL is available, create a hyperlink for the course name
+                if url:
+                    course_text = f"\\href{{{url}}}{{{escape_latex(course)}}}"
+                else:
+                    course_text = escape_latex(course)
+                latex.append("\\cvitem{" + escape_latex(role) + "}{" + course_text + "}")
+
+    # Languages
+    if languages:
+        latex.append("\\preventbreaksection{Languages}")
+        if english:
+            latex.append("\\cvitem{English}{" + escape_latex(english) + "}")
+        if spanish:
+            latex.append("\\cvitem{Spanish}{" + escape_latex(spanish) + "}")
+        if french:
+            latex.append("\\cvitem{French}{" + escape_latex(french) + "}")
     
     # Graphic Design section
     if graphic_design:
@@ -420,7 +435,12 @@ def json_to_latex_cv(json_data):
             latex.append("\\preventbreaksection{Meta}")
             latex.append("\\cvitem{}{" + escape_latex(explanation) + "}")
             latex.append("\\cvitem{Source}{\\href{" + uri + "}{" + uri + "}}")
-    
+   
+    # Add additional commands for compact layout
+    latex.append("\\setlength{\\parskip}{0pt}")  # Minimize paragraph spacing
+    latex.append("\\setlength{\\parsep}{0pt}")   # Minimize list item spacing
+    latex.append("\\setlength{\\itemsep}{0pt}")  # Minimize space between items
+
     # Close document
     latex.append("\\end{document}")
     

@@ -1,7 +1,7 @@
 \documentclass[11pt,a4paper,sans]{moderncv}
 \moderncvstyle{classic}
 \moderncvcolor{blue}
-\usepackage[scale=0.8]{geometry}
+\usepackage[scale=0.85]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{needspace}
 \usepackage{placeins}
@@ -12,7 +12,7 @@
 \renewcommand{\sectionfont}{\Large\bfseries\color{myblue}}
 \renewcommand{\subsectionfont}{\large\mdseries\color{myblue}}
 \usepackage{etoolbox}
-\newcommand{\sectionspace}{\vspace{1.2em}}
+\newcommand{\sectionspace}{\vspace{0.6em}}
 \pretocmd{\section}{\sectionspace}{}{}
 \renewcommand{\cvitem}[3][.25em]{%
   \begin{tabular}{@{}p{0.18\textwidth}@{\hspace{.5em}}p{0.76\textwidth}@{}}%
@@ -29,7 +29,7 @@
 \address{Noruega 6520, Las Condes, Santiago, Chile}{}
 \phone{+56977713483}
 \email{milan.weibel@uc.cl}
-\homepage{https://weibac.github.io}
+\homepage{weibac.github.io}
 \photo[52pt][1.2pt]{profile-pic}
 \social[github]{weibac}
 \begin{document}
@@ -44,31 +44,25 @@
 \cvitem{Certificado Académico}{Ciencia Política}
 \subsection{Additional Education}
 \cvitem{}{\href{https://www.ml4good.org/pastcamps}{ML4Good Bootcamp Brasil 2024}}
-\subsection{Awards}
-\cvitem{}{Distinguished-grade score in the Fundamentals of Engineering Exam}
+\preventbreaksection{Technical Skills}
+\cvitem{Technologies}{\href{https://www.python.org/}{python}, \href{https://pytorch.org/}{pytorch}, \href{https://einops.rocks}{einops}, \href{https://www.selenium.dev/}{selenium}, \href{https://git-scm.com/}{git}, \href{https://en.wikipedia.org/wiki/Linux}{linux}, \href{https://nixos.org/}{nix}, \href{https://www.docker.com/}{docker}, \href{https://www.gnu.org/software/bash/}{bash}, \href{https://neovim.io/}{neovim}, \href{https://en.wikipedia.org/wiki/C_(programming_language)}{c}, \href{https://en.wikipedia.org/wiki/SQL}{sql}, \href{https://rubyonrails.org/}{ruby on rails}, \href{https://reactjs.org/}{react}, \href{https://claude.ai/}{claude}}
+\cvitem{Preferred Paradigm}{Functional programming (as implemented in \href{https://lisp-lang.org/}{lisp} or \href{https://www.haskell.org/}{haskell} or \href{https://www.roc-lang.org/}{roc})}
+\cvitem{Development Techniques}{test-driven development, agile development}
+\cvitem{Domain Knowledge}{debugging, software requirements red teaming, developer psychology}
+\preventbreaksection{Relevant Coursework}
+\cvitem{2022-2}{IIC2233 Programación Avanzada}
+\cvitem{2023-1}{IIC2613 Inteligencia Artificial, IIC2133 Estructuras de datos y algoritmos}
+\cvitem{2023-2}{IIC2333 Sistemas Operativos y Redes, IIC2343 Arquitectura de Computadores , IIC2413 Bases de Datos}
+\cvitem{2024-1}{IIC2143 Ingeniería de software}
+\cvitem{2024-2}{IIC2513 Tecnologías y Aplicaciones Web}
+\cvitem{2025-1}{IIC2552 Taller de Programacion Avanzada, IIC2154 Proyecto de Especialidad, IIC3697 Aprendizaje Profundo}
+\preventbreaksection{Teaching Experience}
+\cvitem{Teaching Assistant}{IIC1103 Introducción a la Programación}
+\cvitem{Program lead, session facilitator}{\href{https://aisuc.dev}{AI Safety Fundamentals @ UC Chile}}
 \preventbreaksection{Languages}
 \cvitem{English}{Advanced. Native-equivalent proficiency.}
 \cvitem{Spanish}{Native.}
 \cvitem{French}{Intermediate.}
-\preventbreaksection{Technical Skills}
-\cvitem{Technologies}{\href{https://www.python.org/}{python}, \href{https://pytorch.org/}{pytorch}, \href{https://einops.rocks}{einops}, \href{https://git-scm.com/}{git}, \href{https://en.wikipedia.org/wiki/Linux}{linux}, \href{https://nixos.org/}{nix}, \href{https://www.docker.com/}{docker}, \href{https://www.gnu.org/software/bash/}{bash}, \href{https://neovim.io/}{neovim}, \href{https://en.wikipedia.org/wiki/C_(programming_language)}{c}, \href{https://en.wikipedia.org/wiki/SQL}{sql}, \href{https://rubyonrails.org/}{ruby on rails}, \href{https://reactjs.org/}{react}, \href{https://claude.ai/}{claude}}
-\cvitem{Preferred Paradigm}{Functional programming (as implemented in \href{https://lisp-lang.org/}{lisp} or \href{https://www.haskell.org/}{haskell} or \href{https://www.roc-lang.org/}{roc})}
-\cvitem{Development Techniques}{test-driven development, agile development, vibe coding}
-\cvitem{Domain Knowledge}{debugging, software requirements red teaming, developer psychology}
-\preventbreaksection{Relevant Coursework}
-\cvitem{2022-2}{IIC2233 Programación Avanzada}
-\cvitem{2023-1}{IIC2613 Inteligencia Artificial}
-\cvitem{2023-1}{IIC2133 Estructuras de datos y algoritmos}
-\cvitem{2023-2}{IIC2333 Sistemas Operativos y Redes}
-\cvitem{2023-2}{IIC2343 Arquitectura de Computadores }
-\cvitem{2023-2}{IIC2413 Bases de Datos}
-\cvitem{2024-1}{IIC2143 Ingeniería de software}
-\cvitem{2024-2}{IIC2513 Tecnologías y Aplicaciones Web}
-\cvitem{2025-1}{IIC2552 Taller de Programacion Avanzada}
-\cvitem{2025-1}{IIC3697 Aprendizaje Profundo}
-\preventbreaksection{Teaching Experience}
-\cvitem{Teaching Assistant}{IIC1103 Introducción a la Programación}
-\cvitem{Program lead, session facilitator}{AI Safety Fundamentals @ UC Chile}
 \preventbreaksection{Graphic Design}
 \cvitem{Portfolio Samples}{\href{https://weibac.github.io/assets/earthskull.png}{earthskull.png}, \href{https://weibac.github.io/assets/aisuc-batalla-chatbots.png}{aisuc-batalla-chatbots.png}, \href{https://weibac.github.io/assets/aisuc-nvidia-1.png}{aisuc-nvidia-1.png}, \href{https://weibac.github.io/assets/aisuc-nvidia-2.png}{aisuc-nvidia-2.png}}
 \cvitem{}{Additional examples available on request}
@@ -79,9 +73,10 @@
 \cvitem{}{No formal publications yet, but currently collaborating with Sohaib Imran from the University of Lancaster on evaluating the bayesian inference capabilities of Large Language Models (LLMs). Previously, wrote up some informal notes on the multilingual capabilities of LLMs: \href{https://www.lesswrong.com/posts/TZPbm3BRkWWTm9ecC/chatgpt-understands-but-largely-does-not-generate-spanglish}{https://www.lesswrong.com/posts/TZPbm...}}
 \preventbreaksection{Development Philosophy}
 \cvitem{}{A synthesis of Agile and Test-Driven Development adapted for the era of LLMs. Focus on thorough requirements analysis and documentation first, operationalized through comprehensive tests. Advocate for functional programming paradigms to enhance testability and allow for the formal verification of critical components. While LLMs have made code generation cheap, designing robust specifications remains critical. Human developers should focus on requirement capture and specification, while leveraging LLMs for implementation that satisfies well-defined test suites. Developers should shift emphasis from code writing to requirements engineering.}
-\preventbreaksection{Preferred Role}
-\cvitem{}{My main requirement is to be placed in an evironment that will allow me to work according to the development philosophy I have outlined in this document. This means working for a client who won't meddle in technical decisions, and with teammates who agree with the importance of writing correct specifications. A scenario I can see happening and which I want to avoid is me being placed in a tester role, and being resented by my teammates for correctly pointing out that their probably-LLM-written, definitively-written-from-a-confused-spec code is bad. This is why I ask either for an administrator role leading a ragtag team of autists, or for a combined analyst + architect role in a team where the administrator is unlikely to override me.}
 \preventbreaksection{Meta}
 \cvitem{}{This very cv is an example of my development philosophy. The main document I worked and iterated on was a json file. I then had an LLM write functions to compile it into latex code. I used third-party web software (overleaf) to compile the latex into PDF. I have been iterating on the content by adding to it incrementally and looking at how it compiles into PDF. The LLM has been iterating on the code, based on my feedback. I have had to help it debug a couple times, but it can debug by itself most of the time when provided with the appropiate error messages.}
 \cvitem{Source}{\href{https://github.com/weibac/cv}{https://github.com/weibac/cv}}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\setlength{\itemsep}{0pt}
 \end{document}
