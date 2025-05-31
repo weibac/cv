@@ -1,0 +1,165 @@
+{
+  "contact": {
+    "name": {
+      "first": "Milan",
+      "last": "Weibel"
+    },
+    "email": "weibac@proton.me",
+    "website": "https://weibac.github.io"
+  },
+      
+  "sections": [
+    {
+      "id": "mission",
+      "label": {
+        "en": "Mission",
+        "es": "Misión"
+      },
+      "content": {
+        "es": "He estado siguiendo el desarrollo de los LLMs y las técnicas de alineación de modelos durante varios años. Lidero AI Safety @ UC, donde cada semestre organizo grupos de lectura de papers. Busco contribuir al proyecto de garantizar que el impacto sobre la humanidad de la IA avanzada sea positivo. Encuentro especialmente prometedora la verificación formal de cadenas de razonamiento (CoT) estructuradas.",
+        "en": "I've been following the development of LLMs and model alignment techniques for several years. I lead AI Safety @ UC, organizing semester-long paper reading groups. I'm looking to contribute to the project of ensuring that the impact of transformative AI on humanity is positive. I see particular promise in the formal verification of structured CoT reasoning chains."
+      }
+    },
+  
+    {
+      "id": "education",
+      "label": {"en": "Education", "es": "Educación"},
+      "type" : "items",
+      "items": [
+        {
+          "label": {
+            "en": "UC Chile",
+            "es": "Pontificia Universidad Católica de Chile"
+          },
+          "value": {
+            "en": "B.Sc. Computer Science Engineering, minors in management and political science.",
+            "es": "Licenciatura en ciencias de la ingeniería, major computación, minor ingeniería industrial, certificado académico en ciencia política."
+          },
+          "date": {
+            "en": "2021-current",
+            "es": "2021-actualidad"
+          }
+        },
+        {
+          "label": "ML4Good Bootcamp Brasil 2024",
+          "url": "https://www.ml4good.org/thebootcamp"
+        }
+      ]
+    },
+
+    {
+      "id": "courses",
+      "label": { "en": "Sample Courses", "es": "Cursos Relevantes" },
+      "type": "items",
+      "items": [
+        { "label": {
+          "en": "IIC2613 Artificial Intelligence",
+          "es": "IIC2613 Inteligencia Artificial"
+          }, "date": "2023-1" },
+        { "label": {
+          "en": "ICP0107 Public policy formulation",
+          "es": "ICP0107 Formación de políticas públicas"
+          }, "date": "2023-1" },
+        { "label": {
+          "en": "IIC3697 Deep Learning",
+          "es": "IIC3697 Aprendizaje Profundo"
+          }, "date": "2025-1" }
+      ]
+    },
+
+    {
+      "id": "teaching",
+      "label": { "en": "Teaching", "es": "Docencia" },
+      "type": "items",
+      "items": [
+        {
+          "label": {
+            "en": "IIC1103 Introduction to Python programming",
+            "es": "IIC1103 Introducción a la Programación"
+          },
+          "value": { "en": "Teaching Assistant", "es": "Ayudante" }
+        },
+        {
+          "label": "AI Safety Fundamentals @ UC Chile",
+          "value": {
+            "en": "Program lead, session facilitator",
+            "es": "Líder de programa, facilitador de sesiones"
+          },
+          "url": "https://aisuc.dev"
+        }
+      ]
+    },
+
+    {
+      "id": "writing-samples",
+      "type": "items",
+      "label": {
+        "en": "Writing Samples",
+        "es": "Publicaciones Informales"
+      },
+      "items": [
+        {
+          "label": "ChatGPT understands, but largely does not generate Spanglish (and other code-mixed) text",
+          "url": "https://www.lesswrong.com/posts/TZPbm3BRkWWTm9ecC/chatgpt-understands-but-largely-does-not-generate-spanglish"
+        },
+        {
+          "label": "A systematic nomenclature for the typological classification of state strength profiles",
+          "url": "https://weibac.github.io/polisci-pdfs/a-systematic-nomenclature-for-the-typological-classification-of-state-strength-profiles.pdf"
+        },
+        {
+          "label": "No-self as an alignment target",
+          "url": "https://www.lesswrong.com/posts/LSJx5EnQEW6s5Juw6/no-self-as-an-alignment-target"
+        }
+      ]
+    },
+
+
+    {
+      "id": "dev-technologies",
+      "label": {
+        "en": "Development Technologies",
+        "es": "Tecnologías de Desarrolo"
+      },
+      "type": "items-compact",
+      "items": [
+        { "label": "Python", "url": "https://www.python.org/" },
+        { "label": "PyTorch", "url": "https://pytorch.org/" },
+        { "label": "einops", "url": "https://einops.rocks" },
+        { "label": "Selenium", "url": "https://www.selenium.dev/" },
+        { "label": "Git", "url": "https://git-scm.com/" },
+        { "label": "Linux", "url": "https://en.wikipedia.org/wiki/Linux" },
+        { "label": "Nix", "url": "https://nixos.org/" },
+        { "label": "Docker", "url": "https://www.docker.com/" },
+        { "label": "Bash", "url": "https://www.gnu.org/software/bash/" },
+        { "label": "Neovim", "url": "https://neovim.io/" },
+        { "label": "C", "url": "https://en.wikipedia.org/wiki/C_(programming_language)" },
+        { "label": "SQL", "url": "https://en.wikipedia.org/wiki/SQL" },
+        { "label": "Ruby on Rails", "url": "https://rubyonrails.org/" },
+        { "label": "React", "url": "https://reactjs.org/" }
+      ]
+    },
+
+    {
+      "id": "languages",
+      "label": { "en": "Languages", "es": "Idiomas" },
+      "type": "items",
+      "items": [
+        {
+          "label": { "en": "English", "es": "Inglés" },
+          "value": {
+            "en": "Advanced. Native-equivalent proficiency.",
+            "es": "Avanzado. Dominio equivalente al nativo."
+          }
+        },
+        {
+          "label": { "en": "Spanish", "es": "Español" },
+          "value": { "en": "Native.", "es": "Nativo." }
+        },
+        {
+          "label": { "en": "French", "es": "Francés" },
+          "value": { "en": "Intermediate.", "es": "Intermedio." }
+        }
+      ]
+    }
+  ]
+}
