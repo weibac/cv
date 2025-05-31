@@ -1,0 +1,175 @@
+{
+  "contact": {
+    "name": {
+      "first": "Milan",
+      "last": "Weibel"
+    },
+    "phone": "+56 9 7771 3483",
+    "email": "weibac@proton.me",
+    "website": "https://weibac.github.io"
+  },
+      
+  "sections": [
+
+    {
+      "id": "education",
+      "label": {"en": "Education", "es": "Educación"},
+      "type" : "items",
+      "items": [
+        {
+          "label": {
+            "en": "UC Chile",
+            "es": "Pontificia Universidad Católica de Chile"
+          },
+          "value": {
+            "en": "B.Sc. Computer Science Engineering, minors in management and political science",
+            "es": "Licenciatura en ciencias de la ingeniería, major computación, minor ingeniería industrial, certificado académico en ciencia política."
+          },
+          "date": {
+            "en": "2021-current",
+            "es": "2021-actualidad"
+          }
+        },
+        {
+          "label": "ML4Good Bootcamp Brasil 2024",
+          "url": "https://www.ml4good.org/thebootcamp"
+        }
+      ]
+    },
+    
+    {
+      "id": "latamgpt-motivation",
+      "label": {"es": "Motivación"},
+      "content": {"es":
+        "Llevo varios años siguiendo el desarrollo de LLMs y técnicas de alineación de modelos. Lidero AI Safety @ UC, organizando grupos semestrales de lectura de papers. Busco contribuir al desarrollo responsable de IA con impacto positivo en la sociedad."
+      }
+    },
+    
+    {
+      "id": "informal-publications",
+      "type": "items",
+      "label": {
+        "en": "Informal Publications",
+        "es": "Publicaciones Informales"
+      },
+      "items": [
+        {
+          "label": "ChatGPT understands, but largely does not generate Spanglish (and other code-mixed) text",
+          "url": "https://www.lesswrong.com/posts/TZPbm3BRkWWTm9ecC/chatgpt-understands-but-largely-does-not-generate-spanglish"
+        },
+        {
+          "label": "No-self as an alignment target",
+          "url": "https://www.lesswrong.com/posts/LSJx5EnQEW6s5Juw6/no-self-as-an-alignment-target"
+        }
+      ]
+    },
+
+   {
+      "id": "links",
+      "label": "Links",
+      "type": "items",
+      "items":[
+         {
+          "label": "LinkedIn",
+          "url": {
+            "en": "https://www.linkedin.com/in/milan-weibel-bacovic-352027247/?locale=en_US",
+            "es": "https://www.linkedin.com/in/milan-weibel-bacovic-352027247"
+          }
+         },
+         {
+           "label": {"en": "Website", "es": "Sitio Web"},
+           "url": "https://weibac.github.io"
+         },
+         {
+           "label": "Github",
+           "url": "https://github.com/weibac"
+         }
+      ]
+    },  
+
+  
+    {
+      "id": "teaching",
+      "label": { "en": "Teaching", "es": "Docencia" },
+      "type": "items",
+      "items": [
+        {
+          "label": "IIC1103 Introducción a la Programación",
+          "value": { "en": "Teaching Assistant", "es": "Ayudante" }
+        },
+        {
+          "label": "AI Safety Fundamentals @ UC Chile",
+          "value": {
+            "en": "Program lead, session facilitator",
+            "es": "Líder de programa, facilitador de sesiones"
+          },
+          "url": "https://aisuc.dev"
+        }
+      ]
+    },
+  
+    {
+      "id": "courses",
+      "label": { "en": "Relevant Courses", "es": "Cursos Relevantes" },
+      "type": "items",
+      "items": [
+        { "label": {
+          "en": "IIC2613 Artificial Intelligence",
+          "es": "IIC2613 Inteligencia Artificial"
+          }, "date": "2023-1" },
+        { "label": {
+          "en": "IIC3697 Deep Learning",
+          "es": "IIC3697 Aprendizaje Profundo"
+          }, "date": "2025-1" }
+      ]
+    },
+  
+    {
+      "id": "dev-technologies",
+      "label": {
+        "en": "Development Technologies",
+        "es": "Tecnologías de Desarrolo"
+      },
+      "type": "items-compact",
+      "items": [
+        { "label": "Python", "url": "https://www.python.org/" },
+        { "label": "PyTorch", "url": "https://pytorch.org/" },
+        { "label": "einops", "url": "https://einops.rocks" },
+        { "label": "Selenium", "url": "https://www.selenium.dev/" },
+        { "label": "Git", "url": "https://git-scm.com/" },
+        { "label": "Linux", "url": "https://en.wikipedia.org/wiki/Linux" },
+        { "label": "Nix", "url": "https://nixos.org/" },
+        { "label": "Docker", "url": "https://www.docker.com/" },
+        { "label": "Bash", "url": "https://www.gnu.org/software/bash/" },
+        { "label": "Neovim", "url": "https://neovim.io/" },
+        { "label": "C", "url": "https://en.wikipedia.org/wiki/C_(programming_language)" },
+        { "label": "SQL", "url": "https://en.wikipedia.org/wiki/SQL" },
+        { "label": "Ruby on Rails", "url": "https://rubyonrails.org/" },
+        { "label": "React", "url": "https://reactjs.org/" }
+      ]
+    },
+
+    {
+      "id": "languages",
+      "label": { "en": "Languages", "es": "Idiomas" },
+      "type": "items",
+      "items": [
+        {
+          "label": { "en": "English", "es": "Inglés" },
+          "value": {
+            "en": "Advanced. Native-equivalent proficiency.",
+            "es": "Avanzado. Dominio equivalente al nativo."
+          }
+        },
+        {
+          "label": { "en": "Spanish", "es": "Español" },
+          "value": { "en": "Native.", "es": "Nativo." }
+        },
+        {
+          "label": { "en": "French", "es": "Francés" },
+          "value": { "en": "Intermediate.", "es": "Intermedio." }
+        }
+      ]
+    }
+  ]
+}

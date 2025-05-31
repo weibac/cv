@@ -25,15 +25,49 @@
           },
           "value": {
             "en": "B.Sc. Computer Science Engineering, minors in management and political science",
-            "es": "Licenciatura en ciencias de la ingeniería, major computación, minor ingeniería industrial, certificado académico en ciencia política"
+            "es": "Licenciatura en ciencias de la ingeniería, major computación, minor ingeniería industrial, certificado académico en ciencia política."
           },
-          "date": "2021-2025"
+          "date": {
+            "en": "2021-current",
+            "es": "2021-actualidad"
+          }
         },
         {
           "label": "ML4Good Bootcamp Brasil 2024",
-          "url": "https://www.ml4good.org/pastcamps"
+          "url": "https://www.ml4good.org/thebootcamp"
         }
       ]
+    },
+
+    {
+      "id": "links",
+      "label": "Links",
+      "type": "items",
+      "items":[
+         {
+           "label": {"en": "Website", "es": "Sitio Web"},
+           "url": "https://weibac.github.io"
+         },
+         {
+           "label": "Github",
+           "url": "https://github.com/weibac"
+         },
+        {
+         "label": "LinkedIn",
+         "url": {
+           "en": "https://www.linkedin.com/in/milan-weibel-bacovic-352027247/?locale=en_US",
+           "es": "https://www.linkedin.com/in/milan-weibel-bacovic-352027247"
+         }
+        }
+      ]
+    },
+
+    {
+      "id": "latamgpt-motivation",
+      "label": {"es": "Motivación"},
+      "content": {"es":
+        "Llevo varios años siguiendo el desarrollo de LLMs y técnicas de alineación de modelos. Lidero AI Safety @ UC, organizando grupos de lectura de papers semestrales. Busco contribuir al desarrollo responsable de IA con impacto positivo en la sociedad."
+      }
     },
     
     {
@@ -78,7 +112,26 @@
         }
       ]
     },
-  
+
+    {
+      "id": "informal-publications",
+      "type": "items",
+      "label": {
+        "en": "Informal Publications",
+        "es": "Publicaciones Informales"
+      },
+      "items": [
+        {
+          "label": "ChatGPT understands, but largely does not generate Spanglish (and other code-mixed) text",
+          "url": "https://www.lesswrong.com/posts/TZPbm3BRkWWTm9ecC/chatgpt-understands-but-largely-does-not-generate-spanglish"
+        },
+        {
+          "label": "No-self as an alignment target",
+          "url": "https://www.lesswrong.com/posts/LSJx5EnQEW6s5Juw6/no-self-as-an-alignment-target"
+        }
+      ]
+    },
+
     {
       "id": "courses",
       "label": { "en": "Relevant Courses", "es": "Cursos Relevantes" },
@@ -134,8 +187,8 @@
     {
       "id": "dev-technologies",
       "label": {
-        "en": "Development Technologies",
-        "es": "Tecnologías de desarrollo"
+        "en": "Relevant Technologies",
+        "es": "Tecnologías Relevantes"
       },
       "type": "items-compact",
       "items": [
