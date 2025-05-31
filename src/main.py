@@ -85,9 +85,12 @@ def render_items(section: Dict[str, Any], lang: str) -> str:
     lines: List[str] = [pick(lang, section.get("label", section["id"]))]
     for item in section["items"]:
         label = pick(lang, item.get("label", ""))
+        date = pick(lang, item.get("date", ""))
         value = pick(lang, item.get("value", ""))
         url = pick(lang, item.get("url"))
         bullet = href(url, label)
+        if date:
+            bullet += f" — {tex_escape(str(date))}"
         if value:
             bullet += f" — {tex_escape(str(value))}"
         lines.append(f"\\item {bullet}")
