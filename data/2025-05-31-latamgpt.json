@@ -81,53 +81,53 @@
   
     {
       "id": "courses",
-      "label": { "en": "Courses", "es": "Cursos" },
+      "label": { "en": "Relevant Courses", "es": "Cursos Relevantes" },
       "type": "items",
       "items": [
         { "label": {
           "en": "IIC2233 Advanced Python Programming",
           "es": "IIC2233 Programación Avanzada"
-          }, "value": "2022-2" },
+          }, "date": "2022-2" },
         { "label": {
           "en": "IIC2613 Artificial Intelligence",
           "es": "IIC2613 Inteligencia Artificial"
-          }, "value": "2023-1" },
+          }, "date": "2023-1" },
         { "label": {
           "en": "IIC2133 Data structures and algorithms",
           "es": "IIC2133 Estructuras de datos y algoritmos"
-          }, "value": "2023-1" },
+          }, "date": "2023-1" },
         { "label": {
           "en": "IIC2333 Operating Systems and Networking",
           "es": "IIC2333 Sistemas Operativos y Redes"
-          }, "value": "2023-2" },
+          }, "date": "2023-2" },
         { "label": {
           "en": "IIC2343 Computer Architecture",
           "es": "IIC2343 Arquitectura de Computadores"
-          }, "value": "2023-2" },
+          }, "date": "2023-2" },
         { "label": {
           "en": "IIC2413 Databases",
           "es": "IIC2413 Bases de Datos"
-          }, "value": "2023-2" },
+          }, "date": "2023-2" },
         { "label": {
           "en": "IIC2143 Software Engineering",
           "es": "IIC2143 Ingeniería de software"
-          }, "value": "2024-1" },
+          }, "date": "2024-1" },
         { "label": {
           "en": "IIC2513 Web technologies and applications",
           "es": "IIC2513 Tecnologías y Aplicaciones Web"
-          }, "value": "2024-2" },
+          }, "date": "2024-2" },
         { "label": {
           "en": "IIC2552 Advanced programming workshop",
           "es": "IIC2552 Taller de Programación Avanzada"
-          }, "value": "2025-1" },
+          }, "date": "2025-1" },
         { "label": {
           "en": "IIC2154 Capstone Proyect",
           "es": "IIC2154 Proyecto de Especialidad"
-          }, "value": "2025-1" },
+          }, "date": "2025-1" },
         { "label": {
           "en": "IIC3697 Deep Learning",
           "es": "IIC3697 Aprendizaje Profundo"
-          }, "value": "2025-1" }
+          }, "date": "2025-1" }
       ]
     },
   
