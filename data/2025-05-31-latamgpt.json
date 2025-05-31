@@ -1,0 +1,159 @@
+{
+  "contact": {
+    "name": {
+      "first": "Milan",
+      "middle": "Joseph",
+      "last": "Weibel Bacovic"
+    },
+    "phone": "+56 9 7771 3483",
+    "email": "weibac@proton.me",
+    "website": "https://weibac.github.io",
+    "github": "weibac"
+  },
+      
+  "sections": [
+        
+    {
+      "id": "education",
+      "label": {"en": "Education", "es": "Educación"},
+      "type" : "items",
+      "items": [
+        {
+          "label": {
+            "en": "UC Chile",
+            "es": "Pontificia Universidad Católica de Chile"
+          },
+          "value": {
+            "en": "B.Sc. Computer Science Engineering, minors in management and political science",
+            "es": "Licenciatura en ciencias de la ingeniería, major computación, minor ingeniería industrial, certificado académico en ciencia política"
+          },
+          "date": "2021-2025"
+        },
+        {
+          "label": "ML4Good Bootcamp Brasil 2024",
+          "url": "https://www.ml4good.org/pastcamps"
+        }
+      ]
+    },
+    
+    {
+      "id": "languages",
+      "label": { "en": "Languages", "es": "Idiomas" },
+      "type": "items",
+      "items": [
+        {
+          "label": { "en": "English", "es": "Inglés" },
+          "value": {
+            "en": "Advanced. Native-equivalent proficiency.",
+            "es": "Avanzado. Dominio equivalente al nativo."
+          }
+        },
+        {
+          "label": { "en": "Spanish", "es": "Español" },
+          "value": { "en": "Native.", "es": "Nativo." }
+        },
+        {
+          "label": { "en": "French", "es": "Francés" },
+          "value": { "en": "Intermediate.", "es": "Intermedio." }
+        }
+      ]
+    },
+  
+    {
+      "id": "teaching",
+      "label": { "en": "Teaching", "es": "Docencia" },
+      "type": "items",
+      "items": [
+        {
+          "label": "IIC1103 Introducción a la Programación",
+          "value": { "en": "Teaching Assistant", "es": "Ayudante" }
+        },
+        {
+          "label": "AI Safety Fundamentals @ UC Chile",
+          "value": {
+            "en": "Program lead, session facilitator",
+            "es": "Líder de programa, facilitador de sesiones"
+          },
+          "url": "https://aisuc.dev"
+        }
+      ]
+    },
+  
+    {
+      "id": "courses",
+      "label": { "en": "Courses", "es": "Cursos" },
+      "type": "items",
+      "items": [
+        { "label": {
+          "en": "IIC2233 Advanced Python Programming",
+          "es": "IIC2233 Programación Avanzada"
+          }, "value": "2022-2" },
+        { "label": {
+          "en": "IIC2613 Artificial Intelligence",
+          "es": "IIC2613 Inteligencia Artificial"
+          }, "value": "2023-1" },
+        { "label": {
+          "en": "IIC2133 Data structures and algorithms",
+          "es": "IIC2133 Estructuras de datos y algoritmos"
+          }, "value": "2023-1" },
+        { "label": {
+          "en": "IIC2333 Operating Systems and Networking",
+          "es": "IIC2333 Sistemas Operativos y Redes"
+          }, "value": "2023-2" },
+        { "label": {
+          "en": "IIC2343 Computer Architecture",
+          "es": "IIC2343 Arquitectura de Computadores"
+          }, "value": "2023-2" },
+        { "label": {
+          "en": "IIC2413 Databases",
+          "es": "IIC2413 Bases de Datos"
+          }, "value": "2023-2" },
+        { "label": {
+          "en": "IIC2143 Software Engineering",
+          "es": "IIC2143 Ingeniería de software"
+          }, "value": "2024-1" },
+        { "label": {
+          "en": "IIC2513 Web technologies and applications",
+          "es": "IIC2513 Tecnologías y Aplicaciones Web"
+          }, "value": "2024-2" },
+        { "label": {
+          "en": "IIC2552 Advanced programming workshop",
+          "es": "IIC2552 Taller de Programación Avanzada"
+          }, "value": "2025-1" },
+        { "label": {
+          "en": "IIC2154 Capstone Proyect",
+          "es": "IIC2154 Proyecto de Especialidad"
+          }, "value": "2025-1" },
+        { "label": {
+          "en": "IIC3697 Deep Learning",
+          "es": "IIC3697 Aprendizaje Profundo"
+          }, "value": "2025-1" }
+      ]
+    },
+  
+    {
+      "id": "dev-technologies",
+      "label": {
+        "en": "Development Technologies",
+        "es": "Tecnologías de desarrollo"
+      },
+      "type": "items-compact",
+      "items": [
+        { "label": "Python", "url": "https://www.python.org/" },
+        { "label": "PyTorch", "url": "https://pytorch.org/" },
+        { "label": "einops", "url": "https://einops.rocks" },
+        { "label": "Selenium", "url": "https://www.selenium.dev/" },
+        { "label": "Git", "url": "https://git-scm.com/" },
+        { "label": "Linux", "url": "https://en.wikipedia.org/wiki/Linux" },
+        { "label": "Nix", "url": "https://nixos.org/" },
+        { "label": "Docker", "url": "https://www.docker.com/" },
+        { "label": "Bash", "url": "https://www.gnu.org/software/bash/" },
+        { "label": "Neovim", "url": "https://neovim.io/" },
+        { "label": "C", "url": "https://en.wikipedia.org/wiki/C_(programming_language)" },
+        { "label": "SQL", "url": "https://en.wikipedia.org/wiki/SQL" },
+        { "label": "Ruby on Rails", "url": "https://rubyonrails.org/" },
+        { "label": "React", "url": "https://reactjs.org/" }
+      ]
+    }
+  ]
+}
